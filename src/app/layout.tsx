@@ -16,8 +16,9 @@ const playfairDisplay = Playfair_Display({
   display: "swap",
 });
 
-// Update this when your domain is confirmed
-const SITE_URL = "https://superstatus.co";
+// Use actual deployed URL so OG image and canonical links resolve correctly.
+// Update to custom domain once superstatus.co is pointed at this deployment.
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://superstatus.vercel.app";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -33,12 +34,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "SuperStatus — Post to WhatsApp Status Every Day, Automatically",
+    default: "SuperStatus — Automated WhatsApp Status, Every Day",
     template: "%s | SuperStatus",
   },
 
   description:
-    "SuperStatus writes and posts to your WhatsApp Status every day in your voice — while you focus on everything else. Built for Nigerian creators, freelancers, and business owners who know consistency builds income.",
+    "SuperStatus posts to your WhatsApp Status daily in your voice — even when your phone is off. Built for Nigerian creators, freelancers & business owners.",
 
   keywords: [
     "WhatsApp Status automation",
@@ -78,18 +79,18 @@ export const metadata: Metadata = {
     alternateLocale: ["en_US", "en_GB"],
     url: SITE_URL,
     siteName: "SuperStatus",
-    title: "SuperStatus — Post to WhatsApp Status Every Day, Automatically",
+    title: "SuperStatus — Automated WhatsApp Status, Every Day",
     description:
-      "Never go quiet on WhatsApp Status again. SuperStatus posts every day in your voice, toward your goal — while you sleep, work, and live. Your network stays engaged. Clients reach out. You close deals.",
+      "Never go quiet on WhatsApp Status again. SuperStatus posts daily in your voice — while you sleep, work, and live. Your network stays engaged. Clients remember you. You close deals.",
     // og:image is injected automatically by app/opengraph-image.tsx
   },
 
   twitter: {
     card: "summary_large_image",
     site: "@superstatushq",
-    title: "SuperStatus — Post to WhatsApp Status Every Day, Automatically",
+    title: "SuperStatus — Automated WhatsApp Status, Every Day",
     description:
-      "Never go quiet on WhatsApp Status again. SuperStatus posts every day in your voice — while you sleep, work, and live.",
+      "Never go quiet on WhatsApp Status again. SuperStatus posts daily in your voice — even when your phone is off.",
     // twitter:image is injected automatically by app/opengraph-image.tsx
   },
 
