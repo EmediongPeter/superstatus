@@ -1,0 +1,25 @@
+{
+  "name": "SuperStatus",
+  "short_name": "SuperStatus",
+  "description": "Post to WhatsApp Status every day, automatically. Built for Nigerian creators, freelancers & business owners.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF9F5",
+  "theme_color": "#25D366",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "social"]
+}

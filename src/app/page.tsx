@@ -1,65 +1,145 @@
-import Image from "next/image";
+import { Navbar } from "@/components/landing/Navbar";
+import { Hero } from "@/components/landing/Hero";
+import { ProblemSection } from "@/components/landing/ProblemSection";
+import { HowItWorks } from "@/components/landing/HowItWorks";
+import { BenefitsSection } from "@/components/landing/BenefitsSection";
+import { WaitlistCTA } from "@/components/landing/WaitlistCTA";
+import { Footer } from "@/components/landing/Footer";
 
-export default function Home() {
+const SITE_URL = "https://superstatus.co";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      "name": "SuperStatus",
+      "url": SITE_URL,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${SITE_URL}/og-image.png`,
+        "width": 1200,
+        "height": 630,
+      },
+      "description":
+        "SuperStatus is a WhatsApp Status automation platform for creators, freelancers, and business owners in Nigeria and Africa.",
+      "foundingDate": "2025",
+      "areaServed": ["NG", "GH", "KE", "ZA", "GB", "US"],
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${SITE_URL}/#product`,
+      "name": "SuperStatus",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Social Media Automation",
+      "operatingSystem": "Web, WhatsApp",
+      "url": SITE_URL,
+      "description":
+        "SuperStatus writes and posts to your WhatsApp Status every day in your voice. Set your goal once. Our system handles the content, timing, and posting — while your phone can be off. Built for Nigerian creators, freelancers, and business owners.",
+      "featureList": [
+        "Daily WhatsApp Status posting",
+        "AI-generated content in your voice",
+        "Works while your phone is off",
+        "Post approval before publishing",
+        "Goal-oriented content strategy",
+        "Safe account pacing",
+      ],
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/PreOrder",
+        "description": "Early access waitlist — free to join",
+        "price": "0",
+        "priceCurrency": "USD",
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Nigerian creators, freelancers, and business owners",
+        "geographicArea": {
+          "@type": "Country",
+          "name": "Nigeria",
+        },
+      },
+      "publisher": { "@id": `${SITE_URL}/#organization` },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      "url": SITE_URL,
+      "name": "SuperStatus",
+      "description":
+        "Post to WhatsApp Status every day, automatically. Built for Nigerian creators, freelancers & business owners.",
+      "publisher": { "@id": `${SITE_URL}/#organization` },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": `${SITE_URL}/?q={search_term_string}` },
+        "query-input": "required name=search_term_string",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is SuperStatus?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SuperStatus is a WhatsApp Status automation tool that posts to your status every day in your voice. You set your goal once — more clients, more visibility, more sales — and SuperStatus writes and posts content toward that goal automatically, even when your phone is off.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Does SuperStatus work without my phone being on?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SuperStatus uses a cloud-hosted companion device that connects to your WhatsApp once via QR code scan. After that, your phone can be off, dead, or anywhere in the world — posts still go out on schedule.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Can I approve posts before they go live?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. For your first 30 days, every post is sent to you for approval before it goes live. After that, you choose your level of control — always manual, always automatic, or anything in between.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Will my WhatsApp account get banned?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SuperStatus is built with account safety as a first priority. We use smart pacing, warm-up sequences, and human-like posting patterns that keep your WhatsApp number safe.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Who is SuperStatus built for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SuperStatus is built for Nigerian and African freelancers, content creators, small business owners, and professionals who want to stay consistently visible to their WhatsApp network without spending hours on content creation every day.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export default function Page() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Navbar />
+      <main>
+        <Hero />
+        <ProblemSection />
+        <HowItWorks />
+        <BenefitsSection />
+        <WaitlistCTA />
       </main>
-    </div>
+      <Footer />
+    </>
   );
 }
