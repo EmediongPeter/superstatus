@@ -81,8 +81,16 @@ export const metadata: Metadata = {
     siteName: "SuperStatus",
     title: "SuperStatus — Automated WhatsApp Status, Every Day",
     description:
-      "Never go quiet on WhatsApp Status again. SuperStatus posts daily in your voice — while you sleep, work, and live. Your network stays engaged. Clients remember you. You close deals.",
-    // og:image is injected automatically by app/opengraph-image.tsx
+      "Never go quiet on WhatsApp Status again. SuperStatus posts daily in your voice — even when your phone is off. Your network stays engaged.",
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        type: "image/png",
+        alt: "SuperStatus — Automated WhatsApp Status, Every Day",
+      },
+    ],
   },
 
   twitter: {
@@ -91,7 +99,7 @@ export const metadata: Metadata = {
     title: "SuperStatus — Automated WhatsApp Status, Every Day",
     description:
       "Never go quiet on WhatsApp Status again. SuperStatus posts daily in your voice — even when your phone is off.",
-    // twitter:image is injected automatically by app/opengraph-image.tsx
+    images: [`${SITE_URL}/opengraph-image`],
   },
 
   alternates: {
