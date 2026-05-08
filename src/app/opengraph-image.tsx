@@ -62,7 +62,7 @@ export default function OGImage() {
           >
             SuperStatus
           </span>
-          <div
+          {/* <div
             style={{
               marginLeft: 12,
               backgroundColor: "#FFCB47",
@@ -75,7 +75,7 @@ export default function OGImage() {
             <span style={{ fontSize: 14, fontWeight: 900, color: "#141413" }}>
               Early Access
             </span>
-          </div>
+          </div> */}
         </div>
 
         {/* Main headline — two lines via flex column instead of <br /> */}
