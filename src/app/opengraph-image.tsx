@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "SuperStatus — Post to WhatsApp Status Every Day, Automatically";
+export const alt = "SuperStatus — Automated WhatsApp Status, Every Day";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -19,37 +19,8 @@ export default function OGImage() {
           justifyContent: "center",
           padding: "80px 90px",
           fontFamily: "sans-serif",
-          position: "relative",
-          overflow: "hidden",
         }}
       >
-        {/* Background green circle */}
-        <div
-          style={{
-            position: "absolute",
-            top: -160,
-            right: -160,
-            width: 520,
-            height: 520,
-            backgroundColor: "#25D366",
-            borderRadius: "50%",
-            opacity: 0.12,
-          }}
-        />
-        {/* Background yellow circle */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: -120,
-            left: 200,
-            width: 320,
-            height: 320,
-            backgroundColor: "#FFCB47",
-            borderRadius: "50%",
-            opacity: 0.07,
-          }}
-        />
-
         {/* Logo row */}
         <div
           style={{
@@ -65,7 +36,6 @@ export default function OGImage() {
               height: 52,
               backgroundColor: "#25D366",
               borderRadius: 14,
-              border: "2.5px solid #25D366",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -92,8 +62,6 @@ export default function OGImage() {
           >
             SuperStatus
           </span>
-
-          {/* Badge */}
           <div
             style={{
               marginLeft: 12,
@@ -104,29 +72,42 @@ export default function OGImage() {
               alignItems: "center",
             }}
           >
-            <span
-              style={{ fontSize: 14, fontWeight: 900, color: "#141413" }}
-            >
+            <span style={{ fontSize: 14, fontWeight: 900, color: "#141413" }}>
               Early Access
             </span>
           </div>
         </div>
 
-        {/* Main headline */}
+        {/* Main headline — two lines via flex column instead of <br /> */}
         <div
           style={{
-            fontSize: 68,
-            fontWeight: 900,
-            color: "#ffffff",
-            lineHeight: 1.0,
-            letterSpacing: "-2.5px",
+            display: "flex",
+            flexDirection: "column",
             marginBottom: 28,
-            maxWidth: 860,
           }}
         >
-          Show up every day.
-          <br />
-          <span style={{ color: "#25D366" }}>Automatically.</span>
+          <span
+            style={{
+              fontSize: 68,
+              fontWeight: 900,
+              color: "#ffffff",
+              lineHeight: 1.0,
+              letterSpacing: "-2.5px",
+            }}
+          >
+            Show up every day.
+          </span>
+          <span
+            style={{
+              fontSize: 68,
+              fontWeight: 900,
+              color: "#25D366",
+              lineHeight: 1.0,
+              letterSpacing: "-2.5px",
+            }}
+          >
+            Automatically.
+          </span>
         </div>
 
         {/* Subtext */}
@@ -138,18 +119,18 @@ export default function OGImage() {
             maxWidth: 720,
             lineHeight: 1.4,
             marginBottom: 52,
+            display: "flex",
           }}
         >
-          WhatsApp Status automation for Nigerian creators,
-          freelancers &amp; business owners.
+          WhatsApp Status automation for Nigerian creators, freelancers &amp;
+          business owners.
         </div>
 
-        {/* Bottom pills row */}
+        {/* Bottom pills */}
         <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-          {["Posts in your voice", "Works while phone is off", "You approve before it goes live"].map(
+          {["Posts in your voice", "Works while phone is off", "You approve first"].map(
             (label) => (
               <div
-                key={label}
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -160,13 +141,12 @@ export default function OGImage() {
                   padding: "8px 18px",
                 }}
               >
-                <span
+                <div
                   style={{
                     width: 8,
                     height: 8,
-                    borderRadius: "50%",
+                    borderRadius: 9999,
                     backgroundColor: "#25D366",
-                    display: "inline-block",
                   }}
                 />
                 <span
