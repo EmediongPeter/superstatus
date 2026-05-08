@@ -6,7 +6,7 @@ import { BenefitsSection } from "@/components/landing/BenefitsSection";
 import { WaitlistCTA } from "@/components/landing/WaitlistCTA";
 import { Footer } from "@/components/landing/Footer";
 
-const SITE_URL = "https://superstatus.co";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://superstatus.vercel.app";
 
 const jsonLd = {
   "@context": "https://schema.org",
